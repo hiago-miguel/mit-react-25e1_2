@@ -1,0 +1,8 @@
+{
+  "countries": [
+    "Argentina", "Brazil", "Chile", "Colombia", "Peru", "Uruguay", "Ecuador", "Paraguay", "Bolivia", "Venezuela"
+  ],
+  "companies": [
+    "Company A", "Company B", "Company C", "Company D", "Company E", "Company F", "Company G", "Company H", "Company I", "Company J"
+  ]
+}
