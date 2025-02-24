@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import { Button, Form, FormGroup, Label, Input, Col, Row, Alert } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, Col, Row, Alert, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { useNavigate } from 'react-router-dom';
-// import { countriesAndCompanies } from '../data/countriesAndCompanies.json';
 import countriesAndCompanies from '../data/countriesAndCompanies.json';
-
 
 const ComplaintForm = () => {
   const [formData, setFormData] = useState({
@@ -12,9 +10,11 @@ const ComplaintForm = () => {
     email: '',
     country: '',
     company: '',
+    description: '',
   });
   const [errors, setErrors] = useState({});
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isConfirmationModalOpen, setIsConfirmationModalOpen] = useState(false); // New modal state
   const navigate = useNavigate();
 
   const validateForm = () => {
@@ -24,6 +24,9 @@ const ComplaintForm = () => {
     if (!formData.email) formErrors.email = 'Email is required';
     if (!formData.country) formErrors.country = 'Please select a country';
     if (!formData.company) formErrors.company = 'Please select a company';
+    if (!formData.description) formErrors.description = 'Please insert details about your complaint!';
+    else if (formData.description.length < 100) formErrors.description = 'Description must be at least 100 characters long';
+
     setErrors(formErrors);
     return Object.keys(formErrors).length === 0;
   };
@@ -31,12 +34,13 @@ const ComplaintForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
-      setIsModalOpen(true);
+      setIsConfirmationModalOpen(true); // Open confirmation modal
     }
   };
 
   const handleConfirm = () => {
     alert('Complaint submitted successfully!');
+    setIsConfirmationModalOpen(false); // Close confirmation modal
     navigate('/'); // Redirect to Home Page after submission
   };
 
@@ -133,15 +137,36 @@ const ComplaintForm = () => {
         {errors.company && <Alert color="danger">{errors.company}</Alert>}
       </FormGroup>
 
+      {/* Updated Description Field with Larger Box and Min Length of 100 */}
+      <FormGroup>
+        <Label for="description">Description</Label>
+        <Input
+          type="textarea"
+          name="description"
+          id="description"
+          value={formData.description}
+          onChange={handleChange}
+          invalid={errors.description ? true : false}
+          style={{ minHeight: '150px' }} // Larger box for the description field
+        />
+        {errors.description && <Alert color="danger">{errors.description}</Alert>}
+      </FormGroup>
+
       <Button color="primary">Submit</Button>
 
-      {isModalOpen && (
-        <div>
-          <h4>Are you sure you want to submit this complaint?</h4>
-          <Button color="secondary" onClick={() => setIsModalOpen(false)}>Cancel</Button>
+      {/* Confirmation Modal */}
+      <Modal isOpen={isConfirmationModalOpen} toggle={() => setIsConfirmationModalOpen(false)}>
+        <ModalHeader toggle={() => setIsConfirmationModalOpen(false)}>
+          Confirm Submission
+        </ModalHeader>
+        <ModalBody>
+          <p>Are you sure you want to submit this complaint?</p>
+        </ModalBody>
+        <ModalFooter>
+          <Button color="secondary" onClick={() => setIsConfirmationModalOpen(false)}>Cancel</Button>
           <Button color="primary" onClick={handleConfirm}>Confirm</Button>
-        </div>
-      )}
+        </ModalFooter>
+      </Modal>
     </Form>
   );
 };

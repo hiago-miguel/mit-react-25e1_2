@@ -4,7 +4,7 @@ import Footer from './Footer';
 
 const Layout = ({ children }) => {
   return (
-    <div>
+    <div className="bg-dark text-light">
       <Header />
       <main>{children}</main>
       <Footer />

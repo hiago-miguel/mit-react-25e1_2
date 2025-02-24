@@ -3,9 +3,9 @@ import { Container } from 'reactstrap';
 
 const Footer = () => {
   return (
-    <footer className="mt-5 py-4 bg-light">
+    <footer className="bg-dark text-light py-4">
       <Container>
-        <p className="text-center">© 2025 React Complaints App</p>
+        <p className="text-center mb-0">© 2025 Your Company. All rights reserved.</p>
       </Container>
     </footer>
   );
