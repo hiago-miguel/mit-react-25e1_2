@@ -7,7 +7,7 @@ const Footer = () => {
     <footer className="bg-dark text-light py-4">
       <Container className="d-flex justify-content-between align-items-center">
         <a 
-          href="https://github.com/hiago-miguel/" 
+          href="https://github.com/hiago-miguel/mit-react-25e1_2" 
           target="_blank" 
           rel="noopener noreferrer"
           className="text-light"
