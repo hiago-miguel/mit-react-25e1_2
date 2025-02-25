@@ -1,0 +1,22 @@
+/* App.css or a separate CSS file */
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.min-vh-100 {
+  min-height: 100vh; /* Ensure the page takes at least full height of the viewport */
+}
+
+.flex-grow-1 {
+  flex-grow: 1; /* Makes sure the content fills the available space */
+}
