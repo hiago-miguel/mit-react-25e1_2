@@ -25,7 +25,11 @@ const ComplaintForm = () => {
     if (!formData.email) formErrors.email = 'Email is required';
     if (!formData.country) formErrors.country = 'Please select a country';
     if (!formData.company) formErrors.company = 'Please select a company';
-    if (!formData.description) formErrors.description = 'Please insert details about your complaint!';
+    if (!formData.description) {
+      formErrors.description = 'Please insert details about your complaint!';
+    } else if (formData.description.length < 50) {
+      formErrors.description = 'Description must be at least 50 characters long';
+    }
 
     setErrors(formErrors);
     return Object.keys(formErrors).length === 0;
