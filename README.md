@@ -1,14 +1,24 @@
-# React + Vite
+# Infnet MIT | Interfaces with React [25E1_2] 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Main Goals:
+* Create a Layout (Header. Content, and Footer)
+* Images for a logo and application banner.
+* A Form using reactstrap, including validation for all fields.
+* A ComboSelect component fetching data from a JSON file 
 
-Currently, two official plugins are available:
+## How to run the project?
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Clone the project
+2. `cd project_dir`
+3. `npm ci`
+4. `npm run dev`
+5. Open the **Local** url `http://localhost:3000/`
 
+## Creating the project from scratch
 
-## Setup
+Skip this if you just wanna to test the project!!
+
+The goal of this topic is to define the steps taken to configure the project.
 
 ```
 # Create a new Vite project with React
@@ -19,4 +29,5 @@ cd react-complaints
 
 # Install required dependencies
 npm install react-router-dom reactstrap bootstrap
+npm install react-icons
 ```

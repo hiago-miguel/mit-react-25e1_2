@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navbar, NavbarBrand, Nav, NavItem, NavLink, Container } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import logo from '../assets/logo.png'; // Assuming logo.png is in the assets folder
+import logo from '../assets/logo.png';
 
 const Header = () => {
   return (
